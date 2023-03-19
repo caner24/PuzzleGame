@@ -3,10 +3,11 @@ using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using PuzzleGame.Core.Abstract;
 
 namespace PuzzleGame.Entities.Concrate
 {
-    public class Puzzless
+    public class Puzzless : IEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
