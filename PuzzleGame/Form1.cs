@@ -32,5 +32,10 @@ namespace PuzzleGame
             pnlHeader.BackColor = (Color)_colors[_number];
             pnlFooter.BackColor = (Color)_colors[_number];
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -268,6 +268,7 @@
             button2.TabIndex = 3;
             button2.Text = "BASLAT";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // listView1
             // 

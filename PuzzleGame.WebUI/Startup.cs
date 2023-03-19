@@ -1,22 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using PuzzleGame.Business.Abstract;
-using PuzzleGame.Business.Concrate;
-using PuzzleGame.Business.DepencyResolvers.Ninject;
-using PuzzleGame.DataAcess.Abstract;
 using PuzzleGame.DataAcess.Concrate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PuzzleGame.WebApi
+namespace PuzzleGame.WebUI
 {
     public class Startup
     {
@@ -30,17 +24,8 @@ namespace PuzzleGame.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            
-            services.AddTransient<IPuzzleService, PuzzleService>();
-            services.AddTransient<IUsersService, UsersService>();
-            services.AddTransient<IGameDetailsService, GameDetailsService>();
-            services.AddTransient<IPuzzlesDal, PuzzleDal>();
-            services.AddTransient<IUsersDal, UsersDal>();
-            services.AddTransient<IGameDetailsDal, GameDetailsDal>();
-
-            services.AddControllers();
-            services.AddMvc();
+            services.AddRazorPages();
+            services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +35,15 @@ namespace PuzzleGame.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -58,7 +51,7 @@ namespace PuzzleGame.WebApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }
