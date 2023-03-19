@@ -1,0 +1,25 @@
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace PuzzleGame.Entities.Concrate
+{
+    public class Users
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
+
+        [BsonElement("username")]
+        public string username { get; set; }
+
+        [BsonElement("userscore")]
+        public int userscore { get; set; }
+
+        [BsonElement("movesmade")]
+        public int movesmade { get; set; }
+    }
+}
