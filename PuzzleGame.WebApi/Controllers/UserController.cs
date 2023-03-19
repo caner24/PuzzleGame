@@ -4,29 +4,25 @@ using System.Linq;
 using System;
 using PuzzleGame.Entities.Concrate;
 using PuzzleGame.DataAcess.Abstract;
+using PuzzleGame.Business.Abstract;
 
 namespace PuzzleGame.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
-        private IUsersDal _usersDal;
-        public UserController(IUsersDal usersDal)
-        {
-            _usersDal = usersDal;
-        }
+        private IUsersService _userService;
 
-        public IActionResult Index()
+        public UserController(IUsersService userService)
         {
-            return View();
+            _userService = userService;
         }
 
         [HttpGet]
-        public IEnumerable<Users> Get()
+        public IEnumerable<Entities.Concrate.Users> Get()
         {
-            var users = new Users();
-          return _usersDal.GetAllAsync().Result;
+            return _userService.GetAllAsync().Result.ToArray();
         }
     }
 }

@@ -9,8 +9,5 @@ namespace PuzzleGame.DataAcess.Concrate
 {
     public class PuzzleDal : EfEntityRepositoryBase<Puzzless>, IPuzzlesDal
     {
-        public PuzzleDal(DbConfiguration<Puzzless> dbConfiguration) : base(dbConfiguration)
-        {
-        }
     }
 }

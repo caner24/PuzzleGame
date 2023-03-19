@@ -2,7 +2,7 @@ using System;
 
 namespace PuzzleGame.WebApi
 {
-    public class WeatherForecast
+    public class Users
     {
         public DateTime Date { get; set; }
 

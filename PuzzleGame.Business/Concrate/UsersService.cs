@@ -26,9 +26,9 @@ namespace PuzzleGame.Business.Concrate
             throw new NotImplementedException();
         }
 
-        public Task<List<Users>> GetAllAsync()
+        public async Task<List<Users>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _userDal.GetAllAsync();
         }
 
         public Task<Users> GetByIdAsync(Expression<Func<Users, bool>> filter = null)

@@ -7,22 +7,12 @@ using System.Text;
 
 namespace PuzzleGame.DataAcess.Concrate
 {
-    public class DbConfiguration<TEntity>
+    public static class DbConfiguration
     {
-        public MongoClientSettings _settings { get; set; }
-        public MongoClient _client { get; set; }
-        public IMongoDatabase _database { get; set; }
+        public static MongoClientSettings _settings { get; set; }
+        public static  MongoClient _client { get; set; }
+        public static  IMongoDatabase _database { get; set; }
 
-        public readonly IMongoCollection<TEntity> _myCollection;
-        public DbConfiguration()
-        {
-            _settings = MongoClientSettings.FromConnectionString("mongodb+srv://caner24:CanerCelep-44@cluster0.x5pu6sm.mongodb.net/?retryWrites=true&w=majority");
-            _settings.ServerApi = new ServerApi(ServerApiVersion.V1);
-            _client = new MongoClient(_settings);
-            _database = _client.GetDatabase("PuzzleGame");
-
-            _myCollection = _database.GetCollection<TEntity>(nameof(TEntity));
-        }
 
 
     }

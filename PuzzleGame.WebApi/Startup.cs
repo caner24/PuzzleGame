@@ -11,6 +11,7 @@ using PuzzleGame.Business.Concrate;
 using PuzzleGame.Business.DepencyResolvers.Ninject;
 using PuzzleGame.DataAcess.Abstract;
 using PuzzleGame.DataAcess.Concrate;
+using PuzzleGame.Entities.Concrate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,14 +31,10 @@ namespace PuzzleGame.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            
-            services.AddTransient<IPuzzleService, PuzzleService>();
-            services.AddTransient<IUsersService, UsersService>();
-            services.AddTransient<IGameDetailsService, GameDetailsService>();
-            services.AddTransient<IPuzzlesDal, PuzzleDal>();
+
             services.AddTransient<IUsersDal, UsersDal>();
-            services.AddTransient<IGameDetailsDal, GameDetailsDal>();
+            services.AddTransient<IUsersService, UsersService>();
+
 
             services.AddControllers();
             services.AddMvc();
@@ -55,6 +52,8 @@ namespace PuzzleGame.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+           
 
             app.UseEndpoints(endpoints =>
             {

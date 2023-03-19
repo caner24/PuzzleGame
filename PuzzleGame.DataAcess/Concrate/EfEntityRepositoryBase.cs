@@ -5,6 +5,7 @@ using PuzzleGame.DataAcess.Concrate;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,16 +14,20 @@ namespace PuzzleGame.Core.Concrate
     public class EfEntityRepositoryBase<TEntity> : IEntityRepositoryBase<TEntity>
         where TEntity : class, IEntity, new()
     {
-        private readonly DbConfiguration<TEntity> _dbConfiguration;
+        private readonly IMongoCollection<TEntity> _myCollection;
 
-        public EfEntityRepositoryBase(DbConfiguration<TEntity> dbConfiguration)
+        public EfEntityRepositoryBase()
         {
-            _dbConfiguration = dbConfiguration;
+            DbConfiguration._settings = MongoClientSettings.FromConnectionString("mongodb+srv://caner24:45867-Sas@cluster0.x5pu6sm.mongodb.net/?retryWrites=true&w=majority");
+            DbConfiguration._settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            DbConfiguration._client= new MongoClient(DbConfiguration._settings);
+            DbConfiguration._database= DbConfiguration._client.GetDatabase("PuzzleGame");
+            _myCollection = DbConfiguration._database.GetCollection<TEntity>(typeof(TEntity).Name);
         }
 
         public async Task<TEntity> CreateAsync(TEntity customer)
         {
-            await _dbConfiguration._myCollection.InsertOneAsync(customer).ConfigureAwait(false);
+            await  _myCollection.InsertOneAsync(customer).ConfigureAwait(false);
             return customer;
         }
 
@@ -33,7 +38,7 @@ namespace PuzzleGame.Core.Concrate
 
         public async Task<List<TEntity>> GetAllAsync()
         {
-            return await _dbConfiguration._myCollection.Find(c => true).ToListAsync();
+            return await _myCollection.Find(c => true).ToListAsync();
         }
 
         public async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> filter = null)
