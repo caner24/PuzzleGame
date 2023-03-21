@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            panel1 = new System.Windows.Forms.Panel();
+            pnlPuzzleItem = new System.Windows.Forms.Panel();
             pictureBox16 = new System.Windows.Forms.PictureBox();
             pictureBox15 = new System.Windows.Forms.PictureBox();
             pictureBox14 = new System.Windows.Forms.PictureBox();
@@ -46,13 +46,16 @@
             pictureBox3 = new System.Windows.Forms.PictureBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
-            button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
+            btnKaristir = new System.Windows.Forms.Button();
+            btnStart = new System.Windows.Forms.Button();
             listView1 = new System.Windows.Forms.ListView();
+            columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
             panel2 = new System.Windows.Forms.Panel();
             button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
+            btnMove = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -63,7 +66,12 @@
             pnlFooter = new System.Windows.Forms.Panel();
             label4 = new System.Windows.Forms.Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            panel1.SuspendLayout();
+            tbxUserName = new System.Windows.Forms.TextBox();
+            btnSaveName = new System.Windows.Forms.Button();
+            pbxReload = new System.Windows.Forms.PictureBox();
+            pbxRefresh = new System.Windows.Forms.PictureBox();
+            columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            pnlPuzzleItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
@@ -82,30 +90,33 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxReload).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxRefresh).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // pnlPuzzleItem
             // 
-            panel1.Controls.Add(pictureBox16);
-            panel1.Controls.Add(pictureBox15);
-            panel1.Controls.Add(pictureBox14);
-            panel1.Controls.Add(pictureBox13);
-            panel1.Controls.Add(pictureBox12);
-            panel1.Controls.Add(pictureBox11);
-            panel1.Controls.Add(pictureBox10);
-            panel1.Controls.Add(pictureBox9);
-            panel1.Controls.Add(pictureBox8);
-            panel1.Controls.Add(pictureBox7);
-            panel1.Controls.Add(pictureBox6);
-            panel1.Controls.Add(pictureBox5);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new System.Drawing.Point(12, 86);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(426, 307);
-            panel1.TabIndex = 0;
+            pnlPuzzleItem.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            pnlPuzzleItem.Controls.Add(pictureBox16);
+            pnlPuzzleItem.Controls.Add(pictureBox15);
+            pnlPuzzleItem.Controls.Add(pictureBox14);
+            pnlPuzzleItem.Controls.Add(pictureBox13);
+            pnlPuzzleItem.Controls.Add(pictureBox12);
+            pnlPuzzleItem.Controls.Add(pictureBox11);
+            pnlPuzzleItem.Controls.Add(pictureBox10);
+            pnlPuzzleItem.Controls.Add(pictureBox9);
+            pnlPuzzleItem.Controls.Add(pictureBox8);
+            pnlPuzzleItem.Controls.Add(pictureBox7);
+            pnlPuzzleItem.Controls.Add(pictureBox6);
+            pnlPuzzleItem.Controls.Add(pictureBox5);
+            pnlPuzzleItem.Controls.Add(pictureBox4);
+            pnlPuzzleItem.Controls.Add(pictureBox3);
+            pnlPuzzleItem.Controls.Add(pictureBox2);
+            pnlPuzzleItem.Controls.Add(pictureBox1);
+            pnlPuzzleItem.Location = new System.Drawing.Point(25, 89);
+            pnlPuzzleItem.Name = "pnlPuzzleItem";
+            pnlPuzzleItem.Size = new System.Drawing.Size(426, 307);
+            pnlPuzzleItem.TabIndex = 0;
             // 
             // pictureBox16
             // 
@@ -251,44 +262,61 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnKaristir
             // 
-            button1.Location = new System.Drawing.Point(302, 399);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(261, 83);
-            button1.TabIndex = 1;
-            button1.Text = "Karistir";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnKaristir.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            btnKaristir.Location = new System.Drawing.Point(315, 402);
+            btnKaristir.Name = "btnKaristir";
+            btnKaristir.Size = new System.Drawing.Size(261, 83);
+            btnKaristir.TabIndex = 1;
+            btnKaristir.Text = "Karistir";
+            btnKaristir.UseVisualStyleBackColor = true;
+            btnKaristir.Click += btnKaristir_Click;
             // 
-            // button2
+            // btnStart
             // 
-            button2.Location = new System.Drawing.Point(15, 399);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(261, 83);
-            button2.TabIndex = 3;
-            button2.Text = "BASLAT";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnStart.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            btnStart.Location = new System.Drawing.Point(28, 402);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new System.Drawing.Size(261, 83);
+            btnStart.TabIndex = 3;
+            btnStart.Text = "BASLAT";
+            btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click;
             // 
             // listView1
             // 
+            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             listView1.HideSelection = false;
-            listView1.Location = new System.Drawing.Point(662, 89);
+            listView1.Location = new System.Drawing.Point(622, 89);
             listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(200, 396);
+            listView1.Size = new System.Drawing.Size(240, 396);
             listView1.TabIndex = 4;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "ID";
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "AD";
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "SCORE";
             // 
             // panel2
             // 
+            panel2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             panel2.BackColor = System.Drawing.Color.Coral;
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(btnMove);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
-            panel2.Location = new System.Drawing.Point(444, 89);
+            panel2.Location = new System.Drawing.Point(457, 92);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(119, 304);
             panel2.TabIndex = 5;
@@ -307,17 +335,17 @@
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(119, 76);
             button4.TabIndex = 4;
-            button4.Text = "1500";
+            button4.Text = "0";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnMove
             // 
-            button3.Location = new System.Drawing.Point(0, 122);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(119, 80);
-            button3.TabIndex = 3;
-            button3.Text = "3 ";
-            button3.UseVisualStyleBackColor = true;
+            btnMove.Location = new System.Drawing.Point(0, 122);
+            btnMove.Name = "btnMove";
+            btnMove.Size = new System.Drawing.Size(119, 80);
+            btnMove.TabIndex = 3;
+            btnMove.Text = "0";
+            btnMove.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -339,9 +367,10 @@
             // 
             // label1
             // 
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe Script", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(449, 66);
+            label1.Location = new System.Drawing.Point(462, 69);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(106, 20);
             label1.TabIndex = 0;
@@ -349,6 +378,7 @@
             // 
             // pnlHeader
             // 
+            pnlHeader.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             pnlHeader.BackColor = System.Drawing.Color.White;
             pnlHeader.Controls.Add(btnClose);
             pnlHeader.Controls.Add(btnHide);
@@ -360,36 +390,43 @@
             // 
             // btnClose
             // 
+            btnClose.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnClose.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnClose.Location = new System.Drawing.Point(812, 3);
+            btnClose.Location = new System.Drawing.Point(810, 3);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(63, 33);
             btnClose.TabIndex = 12;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // btnHide
             // 
+            btnHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnHide.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnHide.Location = new System.Drawing.Point(678, 3);
+            btnHide.Location = new System.Drawing.Point(676, 3);
             btnHide.Name = "btnHide";
             btnHide.Size = new System.Drawing.Size(59, 32);
             btnHide.TabIndex = 10;
             btnHide.Text = "-";
             btnHide.UseVisualStyleBackColor = true;
+            btnHide.Click += btnHide_Click;
             // 
             // btnFullScreen
             // 
+            btnFullScreen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnFullScreen.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnFullScreen.Location = new System.Drawing.Point(743, 3);
+            btnFullScreen.Location = new System.Drawing.Point(741, 3);
             btnFullScreen.Name = "btnFullScreen";
             btnFullScreen.Size = new System.Drawing.Size(63, 32);
             btnFullScreen.TabIndex = 11;
             btnFullScreen.Text = "[ ]";
             btnFullScreen.UseVisualStyleBackColor = true;
+            btnFullScreen.Click += btnFullScreen_Click;
             // 
             // pnlFooter
             // 
+            pnlFooter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             pnlFooter.BackColor = System.Drawing.Color.White;
             pnlFooter.Location = new System.Drawing.Point(0, 510);
             pnlFooter.Name = "pnlFooter";
@@ -398,6 +435,7 @@
             // 
             // label4
             // 
+            label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe Script", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             label4.Location = new System.Drawing.Point(713, 66);
@@ -412,20 +450,67 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // tbxUserName
+            // 
+            tbxUserName.Location = new System.Drawing.Point(16, 48);
+            tbxUserName.Name = "tbxUserName";
+            tbxUserName.Size = new System.Drawing.Size(218, 22);
+            tbxUserName.TabIndex = 10;
+            // 
+            // btnSaveName
+            // 
+            btnSaveName.Location = new System.Drawing.Point(240, 48);
+            btnSaveName.Name = "btnSaveName";
+            btnSaveName.Size = new System.Drawing.Size(132, 22);
+            btnSaveName.TabIndex = 11;
+            btnSaveName.Text = "SaveMyUsername";
+            btnSaveName.UseVisualStyleBackColor = true;
+            btnSaveName.Click += btnSaveName_Click;
+            // 
+            // pbxReload
+            // 
+            pbxReload.Image = Properties.Resources.Youtube_loading_symbol_1__wobbly_;
+            pbxReload.Location = new System.Drawing.Point(622, 117);
+            pbxReload.Name = "pbxReload";
+            pbxReload.Size = new System.Drawing.Size(240, 368);
+            pbxReload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pbxReload.TabIndex = 12;
+            pbxReload.TabStop = false;
+            // 
+            // pbxRefresh
+            // 
+            pbxRefresh.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            pbxRefresh.Image = Properties.Resources.png_transparent_computer_icons_refresh_free_one_button_reload_text_logo_monochrome;
+            pbxRefresh.Location = new System.Drawing.Point(662, 66);
+            pbxRefresh.Name = "pbxRefresh";
+            pbxRefresh.Size = new System.Drawing.Size(45, 20);
+            pbxRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pbxRefresh.TabIndex = 13;
+            pbxRefresh.TabStop = false;
+            pbxRefresh.Click += pbxRefresh_Click;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "HAMLE";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.Coral;
             ClientSize = new System.Drawing.Size(874, 554);
+            Controls.Add(pbxRefresh);
+            Controls.Add(pbxReload);
+            Controls.Add(btnSaveName);
+            Controls.Add(tbxUserName);
             Controls.Add(label4);
             Controls.Add(pnlFooter);
             Controls.Add(pnlHeader);
             Controls.Add(panel2);
             Controls.Add(listView1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(panel1);
+            Controls.Add(btnStart);
+            Controls.Add(btnKaristir);
+            Controls.Add(pnlPuzzleItem);
             Controls.Add(label1);
             Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -433,7 +518,7 @@
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "PuzzleGame";
             Load += Form1_Load;
-            panel1.ResumeLayout(false);
+            pnlPuzzleItem.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox16).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
@@ -453,13 +538,15 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             pnlHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbxReload).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxRefresh).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlPuzzleItem;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox14;
@@ -476,13 +563,13 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnKaristir;
+        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMove;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -491,7 +578,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnHide;
-        private System.Windows.Forms.Button btnFullScreen;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox tbxUserName;
+        private System.Windows.Forms.Button btnSaveName;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.PictureBox pbxReload;
+        private System.Windows.Forms.PictureBox pbxRefresh;
+        private System.Windows.Forms.Button btnFullScreen;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

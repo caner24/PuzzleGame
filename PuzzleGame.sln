@@ -5,15 +5,15 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame", "PuzzleGame\PuzzleGame.csproj", "{4D06D1D9-7A27-443D-BD2F-AB8209D046E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.DataAcess", "PuzzleGame.DataAcess\PuzzleGame.DataAcess.csproj", "{1B2AB3D1-BC01-4C69-A586-3DA833C4FFD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.DataAcess", "PuzzleGame.DataAcess\PuzzleGame.DataAcess.csproj", "{1B2AB3D1-BC01-4C69-A586-3DA833C4FFD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.Entities", "PuzzleGame.Entities\PuzzleGame.Entities.csproj", "{CDD110CD-73E4-486B-AFE6-57151402072E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.Entities", "PuzzleGame.Entities\PuzzleGame.Entities.csproj", "{CDD110CD-73E4-486B-AFE6-57151402072E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.Core", "PuzzleGame.Core\PuzzleGame.Core.csproj", "{0E5B5C94-E152-4AF8-BD07-96CCE2DAE35D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.Core", "PuzzleGame.Core\PuzzleGame.Core.csproj", "{0E5B5C94-E152-4AF8-BD07-96CCE2DAE35D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.Business", "PuzzleGame.Business\PuzzleGame.Business.csproj", "{92B53459-9F58-4E3A-A3CB-DCD97920494A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.Business", "PuzzleGame.Business\PuzzleGame.Business.csproj", "{92B53459-9F58-4E3A-A3CB-DCD97920494A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.WebApi", "PuzzleGame.WebApi\PuzzleGame.WebApi.csproj", "{F2E4BD63-CD48-402D-9C88-282AE5556B59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.WebUI", "PuzzleGame.WebUI\PuzzleGame.WebUI.csproj", "{0C690362-4781-4A58-9522-E258E755F9A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{92B53459-9F58-4E3A-A3CB-DCD97920494A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92B53459-9F58-4E3A-A3CB-DCD97920494A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92B53459-9F58-4E3A-A3CB-DCD97920494A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2E4BD63-CD48-402D-9C88-282AE5556B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2E4BD63-CD48-402D-9C88-282AE5556B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2E4BD63-CD48-402D-9C88-282AE5556B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2E4BD63-CD48-402D-9C88-282AE5556B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C690362-4781-4A58-9522-E258E755F9A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C690362-4781-4A58-9522-E258E755F9A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C690362-4781-4A58-9522-E258E755F9A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C690362-4781-4A58-9522-E258E755F9A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

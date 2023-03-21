@@ -8,7 +8,7 @@ using System.Text;
 
 namespace PuzzleGame.Entities.Concrate
 {
-    public class Users : IEntity
+    public class Users :IEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -16,5 +16,13 @@ namespace PuzzleGame.Entities.Concrate
 
         [BsonElement("username")]
         public string username { get; set; }
-    }
+
+		[BsonElement("userscore")]
+		public int userscore { get; set; }
+
+		[BsonElement("movesmade")]
+		public int movesmade { get; set; }
+
+
+	}
 }

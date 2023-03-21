@@ -1,5 +1,6 @@
 ﻿using PuzzleGame.Business.Abstract;
 using PuzzleGame.DataAcess.Abstract;
+using PuzzleGame.DataAcess.Concrate;
 using PuzzleGame.Entities.Concrate;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace PuzzleGame.Business.Concrate
         {
             _puzzleDal = puzzleDal;
         }
-        public Task<Puzzless> CreateAsync(Puzzless customer)
+        public async Task<Puzzless> CreateAsync(Puzzless customer)
         {
-            throw new NotImplementedException();
+         return   await _puzzleDal.CreateAsync(customer);
         }
 
         public Task DeleteAsync(Expression<Func<Puzzless, bool>> filter = null)
@@ -26,10 +27,10 @@ namespace PuzzleGame.Business.Concrate
             throw new NotImplementedException();
         }
 
-        public Task<List<Puzzless>> GetAllAsync()
+        public async Task<List<Puzzless>> GetAllAsync()
         {
-            throw new NotImplementedException();
-        }
+			return await _puzzleDal.GetAllAsync();
+		}
 
         public Task<Puzzless> GetByIdAsync(Expression<Func<Puzzless, bool>> filter = null)
         {

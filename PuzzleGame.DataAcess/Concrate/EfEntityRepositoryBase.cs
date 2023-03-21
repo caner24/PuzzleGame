@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using PuzzleGame.Core.Abstract;
 using PuzzleGame.DataAcess.Concrate;
 using System;
@@ -19,10 +20,12 @@ namespace PuzzleGame.Core.Concrate
         public EfEntityRepositoryBase()
         {
             DbConfiguration._settings = MongoClientSettings.FromConnectionString("mongodb+srv://caner24:45867-Sas@cluster0.x5pu6sm.mongodb.net/?retryWrites=true&w=majority");
-            DbConfiguration._settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            //DbConfiguration._settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            DbConfiguration._settings.LinqProvider = LinqProvider.V2;
             DbConfiguration._client= new MongoClient(DbConfiguration._settings);
             DbConfiguration._database= DbConfiguration._client.GetDatabase("PuzzleGame");
             _myCollection = DbConfiguration._database.GetCollection<TEntity>(typeof(TEntity).Name);
+          
         }
 
         public async Task<TEntity> CreateAsync(TEntity customer)

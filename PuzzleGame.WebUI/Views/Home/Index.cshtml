@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Puzzless>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Picture Name</th>
+            <th scope="col">Picture İco</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.puzzlename</td>
+                <td class="w-25"><img style="width:100px;height:50px;object-fit:contain" alt="puzzleImage" src="@ImageProp.ByteArrayToImageAsync(item.puzzlepicture)" /></td>
+                <td><a onclick="alert('Are you sure want to delete ?')" class="p-1 btn-danger" asp-action="Privacy" asp-controller="Home" >Delete</a></td>
+                <td><a class="p-1 btn-info" asp-action="Privacy" asp-controller="Home" >Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

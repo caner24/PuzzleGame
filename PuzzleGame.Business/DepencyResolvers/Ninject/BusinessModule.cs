@@ -14,11 +14,10 @@ namespace PuzzleGame.Business.DepencyResolvers.Ninject
     {
         public override void Load()
         {
-            Bind<IGameDetailsDal>().To<GameDetailsDal>().InSingletonScope();
+
             Bind<IPuzzlesDal>().To<PuzzleDal>().InSingletonScope();
             Bind<IUsersDal>().To<UsersDal>().InSingletonScope();
 
-            Bind<IGameDetailsService>().To<IGameDetailsService>().InSingletonScope();
             Bind<IPuzzleService>().To<PuzzleService>().InSingletonScope();
             Bind<IUsersService>().To<UsersService>().InSingletonScope();
 

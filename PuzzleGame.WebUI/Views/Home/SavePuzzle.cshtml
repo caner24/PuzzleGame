@@ -1,0 +1,61 @@
+﻿@model Puzzless
+
+
+<div class="mt-3 container">
+    <div class="d-flex align-items-center">
+        <img class="rounded-5"
+             src="https://media.tenor.com/f1-JVAKMoLgAAAAM/puzzle-people-people.gif"
+             alt="" />
+        <h2>Add puzzle images</h2>
+    </div>
+
+    <form class="mt-5"
+          asp-action="SavePuzzle"
+          asp-controller="Home"
+          enctype="multipart/form-data">
+        <span class="p-3 input-group-text">Resim Adi </span>
+        <div class="input-group mb-3">
+            <input asp-for="puzzlename"
+                   type="text"
+                   class="p-2 form-control"
+                   placeholder="Username"
+                   aria-label="Username"
+                   aria-describedby="basic-addon1" />
+        </div>
+
+        <span class="mt-5 p-3 input-group-text">Resim Seçimi </span>
+        <div class="h-25 d-flex flex-row input-group">
+            <input onchange="onFileSelected(event)"
+                   type="file"
+                   class="p-5 form-control"
+                   name="formImage"
+                   id="formImage"
+                   aria-describedby="inputGroupFileAddon04"
+                   aria-label="Upload" />
+            <img style="width:100px;height:100px;object-fit:fill" id="myimage" name="myimage" />
+        </div>
+
+        <input class="mt-5 w-100 bg-primary p-3 rounded-3"
+               type="submit"
+               value="Kaydet" />
+    </form>
+</div>
+@section Scripts{
+
+    <script>
+        function onFileSelected(event) {
+            var selectedFile = event.target.files[0];
+            var reader = new FileReader();
+
+            var imgtag = document.getElementById("myimage");
+            imgtag.title = selectedFile.name;
+
+            reader.onload = function (event) {
+                imgtag.src = event.target.result;
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
+    </script>
+
+}
