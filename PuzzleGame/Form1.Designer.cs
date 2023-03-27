@@ -52,8 +52,8 @@
             columnHeader1 = new System.Windows.Forms.ColumnHeader();
             columnHeader2 = new System.Windows.Forms.ColumnHeader();
             columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            columnHeader4 = new System.Windows.Forms.ColumnHeader();
             panel2 = new System.Windows.Forms.Panel();
-            button5 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
             btnMove = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             btnSaveName = new System.Windows.Forms.Button();
             pbxReload = new System.Windows.Forms.PictureBox();
             pbxRefresh = new System.Windows.Forms.PictureBox();
-            columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            pbxPrevImg = new System.Windows.Forms.PictureBox();
             pnlPuzzleItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
@@ -92,6 +92,7 @@
             pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxReload).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxRefresh).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxPrevImg).BeginInit();
             SuspendLayout();
             // 
             // pnlPuzzleItem
@@ -307,11 +308,15 @@
             // 
             columnHeader3.Text = "SCORE";
             // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "HAMLE";
+            // 
             // panel2
             // 
             panel2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             panel2.BackColor = System.Drawing.Color.Coral;
-            panel2.Controls.Add(button5);
+            panel2.Controls.Add(pbxPrevImg);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(btnMove);
             panel2.Controls.Add(label3);
@@ -320,14 +325,6 @@
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(119, 304);
             panel2.TabIndex = 5;
-            // 
-            // button5
-            // 
-            button5.Location = new System.Drawing.Point(0, 0);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(119, 88);
-            button5.TabIndex = 6;
-            button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -489,9 +486,14 @@
             pbxRefresh.TabStop = false;
             pbxRefresh.Click += pbxRefresh_Click;
             // 
-            // columnHeader4
+            // pbxPrevImg
             // 
-            columnHeader4.Text = "HAMLE";
+            pbxPrevImg.Location = new System.Drawing.Point(5, 3);
+            pbxPrevImg.Name = "pbxPrevImg";
+            pbxPrevImg.Size = new System.Drawing.Size(111, 91);
+            pbxPrevImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pbxPrevImg.TabIndex = 5;
+            pbxPrevImg.TabStop = false;
             // 
             // Form1
             // 
@@ -540,6 +542,7 @@
             pnlHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbxReload).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxRefresh).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxPrevImg).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -567,7 +570,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnMove;
         private System.Windows.Forms.Label label3;
@@ -588,5 +590,6 @@
         private System.Windows.Forms.PictureBox pbxRefresh;
         private System.Windows.Forms.Button btnFullScreen;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.PictureBox pbxPrevImg;
     }
 }

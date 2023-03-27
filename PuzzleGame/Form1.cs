@@ -30,6 +30,7 @@ namespace PuzzleGame
         LinkedList<Bitmap> lstHandledPictureList = new LinkedList<Bitmap>();
         List<Bitmap> tempImage = new List<Bitmap>();
         List<Image> ImageList = new List<Image>();
+        List<Image> FoundedList = new List<Image>();
         Random rnd = new Random();
         PictureBox box;
         PictureBox pbxTemp;
@@ -105,8 +106,35 @@ namespace PuzzleGame
                 loadImages();
             }
         }
+        List<string> NumbList = new List<string>();
+        private async void SetPbxImages()
+        {
+            NumbList.Clear();
+            int setRandom1 = 0, setRandom2 = 0;
+            Random rndNumb = new Random();
+
+
+            for (int i = 0; i < 16; i++)
+            {
+                setRandom1 = rndNumb.Next(0, 4);
+                setRandom2 = rndNumb.Next(0, 4);
+                while (NumbList.Contains(setRandom1.ToString() + setRandom2.ToString()) && !FoundedList.Contains(bmps[setRandom1, setRandom2]))
+                {
+                    setRandom1 = rndNumb.Next(0, 4);
+                    setRandom2 = rndNumb.Next(0, 4);
+                }
+                NumbList.Add(setRandom1.ToString() + setRandom2.ToString());
+                var element = (PictureBox)pnlPuzzleItem.Controls[i];
+
+                if (element.Enabled == true )
+                {
+                    element.Image = bmps[setRandom1, setRandom2];
+                }
+            }
+        }
         private void loadImages()
         {
+            FoundedList.Clear();
             randomPictureCode = pictureCode.Next(0, ImageList.Count());
             for (int i = 0; i < 16; i++)
             {
@@ -117,6 +145,7 @@ namespace PuzzleGame
             bmps = null;
             btnStart.Enabled = false;
             Image img = ImageList[randomPictureCode];
+            pbxPrevImg.Image = img;
             int widthThird = (int)((double)img.Width / 4.0 + 0.5);
             int heightThird = (int)((double)img.Height / 4.0 + 0.5);
             bmps = new Bitmap[4, 4];
@@ -128,6 +157,8 @@ namespace PuzzleGame
                     g.DrawImage(img, new Rectangle(0, 0, widthThird, heightThird), new Rectangle(j * widthThird, i * heightThird, widthThird, heightThird), GraphicsUnit.Pixel);
                     g.Dispose();
                 }
+
+
             pictureBox1.Image = bmps[0, 0];
             pictureBox2.Image = bmps[0, 1];
             pictureBox3.Image = bmps[0, 2];
@@ -150,6 +181,7 @@ namespace PuzzleGame
                 tempImage.Add((Bitmap)((PictureBox)pnlPuzzleItem.Controls[i]).Image);
                 lstOriginalPictureList.AddFirst((Bitmap)((PictureBox)pnlPuzzleItem.Controls[i]).Image);
             }
+            SetPbxImages();
         }
 
         int score = 30;
@@ -171,6 +203,7 @@ namespace PuzzleGame
                             if (lstHandledPictureList.First.Value == (pnlPuzzleItem.Controls[a] as PictureBox).Image && (pnlPuzzleItem.Controls[a] as PictureBox).Image == tempImage[a])
                             {
                                 pbxTemp.Enabled = false;
+                                FoundedList.Add(pbxTemp.Image);
                                 score += 5;
                                 button4.Text = score.ToString();
                                 oneTimes = true;
@@ -186,6 +219,7 @@ namespace PuzzleGame
                             if (lstHandledPictureList.Last.Value == (pnlPuzzleItem.Controls[b] as PictureBox).Image && (pnlPuzzleItem.Controls[b] as PictureBox).Image == tempImage[b])
                             {
                                 pbxTemp2.Enabled = false;
+                                FoundedList.Add(pbxTemp.Image);
                                 score += 5;
                                 button4.Text = score.ToString();
                                 twoTimes = true;
@@ -200,7 +234,7 @@ namespace PuzzleGame
                 if (i == 16) return true;
                 else return false;
             }
-            if (pbxTemp.Enabled == true && pbxTemp2.Enabled == true)
+            if (pbxTemp.Enabled == true && pbxTemp2.Enabled == true && pbxTemp.Image!=pbxTemp2.Image)
             {
                 if (score != 0)
                 {
@@ -253,8 +287,10 @@ namespace PuzzleGame
                 if (CheckWin())
                 {
                     MessageBox.Show("Kazandiniz", "Tebrik", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    await _userService.CreateAsync(new Users() { username = userName, movesmade = yapilanAdim, userscore = score });
+
                     loadImages();
+                    await _userService.CreateAsync(new Users() { username = userName, movesmade = yapilanAdim, userscore = score });
+
                 };
             }
             else
@@ -268,7 +304,7 @@ namespace PuzzleGame
 
         private void btnKaristir_Click(object sender, EventArgs e)
         {
-            karistir();
+            SetPbxImages();
         }
         private void karistir()
         {
