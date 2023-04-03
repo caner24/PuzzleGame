@@ -104,7 +104,6 @@ namespace PuzzleGame
             }
             else
             {
-                btnKaristir.Enabled = true;
                 loadImages();
 
             }
@@ -173,7 +172,7 @@ namespace PuzzleGame
                 img = ImageList[randomPictureCode];
             }
             pbxPrevImg.Image = img;
-          
+
 
             int widthThird = (int)((double)img.Width / 4.0 + 0.5);
             int heightThird = (int)((double)img.Height / 4.0 + 0.5);
@@ -280,7 +279,7 @@ namespace PuzzleGame
         }
         private async void pictureBox_Click(object sender, EventArgs e)
         {
-
+            btnKaristir.Enabled = true;
             PictureBox pbx = (sender as PictureBox);
             if (pbx.BorderStyle != BorderStyle.Fixed3D)
             {
@@ -311,12 +310,21 @@ namespace PuzzleGame
                 if (CheckWin())
                 {
                     MessageBox.Show("Kazandiniz", "Tebrik", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    using (StreamWriter streamWriter = new StreamWriter(Directory.GetCurrentDirectory() + "/log.txt"))
+                    try
                     {
-                        await streamWriter.WriteLineAsync($"ADI : {userName} | HAMLE SAYISI : {yapilanAdim} | PUANI : {score} | ");
-                        streamWriter.Close();
-                        await streamWriter.DisposeAsync();
+                        using (StreamWriter streamWriter = new StreamWriter(Directory.GetCurrentDirectory() + "/log.txt"))
+                        {
+                            await streamWriter.WriteLineAsync($"ADI : {userName} | HAMLE SAYISI : {yapilanAdim} | PUANI : {score} | ");
+                            streamWriter.Close();
+                            await streamWriter.DisposeAsync();
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Yapilan adim : {yapilanAdim.ToString()} , bitirilen skor : {score.ToString()}");
+                    }
+
+                    btnKaristir.Enabled = false;
                     loadImages();
                     await _userService.CreateAsync(new Users() { username = userName, movesmade = yapilanAdim, userscore = score });
                 };
