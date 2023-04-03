@@ -10,7 +10,7 @@ namespace PuzzleGame.Business.Abstract
     public interface IUsersService
     {
         Task<List<Users>> GetAllAsync();
-        Task<Users> GetByIdAsync(Expression<Func<Users, bool>> filter = null);
+        Task<Users> GetByIdAsync(string id);
         Task<Users> CreateAsync(Users customer);
         Task UpdateAsync(Users entity, Expression<Func<Users, bool>> filter = null);
         Task DeleteAsync(Expression<Func<Users, bool>> filter = null);

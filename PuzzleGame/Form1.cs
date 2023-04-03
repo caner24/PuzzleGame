@@ -39,7 +39,7 @@ namespace PuzzleGame
         int yapilanAdim = 0;
         public static string userName;
         int randomPictureCode;
-        Random pictureCode = new Random(0);
+        Random pictureCode = new Random();
         public Form1()
         {
             InitializeComponent();
@@ -59,6 +59,7 @@ namespace PuzzleGame
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            btnKaristir.Enabled = false;
             btnStart.Enabled = false;
             var allImages = await _puzzleService.GetAllAsync();
             foreach (var image in allImages)
@@ -103,7 +104,9 @@ namespace PuzzleGame
             }
             else
             {
+                btnKaristir.Enabled = true;
                 loadImages();
+
             }
         }
         List<string> NumbList = new List<string>();
@@ -113,29 +116,48 @@ namespace PuzzleGame
             int setRandom1 = 0, setRandom2 = 0;
             Random rndNumb = new Random();
 
-
             for (int i = 0; i < 16; i++)
             {
                 setRandom1 = rndNumb.Next(0, 4);
                 setRandom2 = rndNumb.Next(0, 4);
-                while (NumbList.Contains(setRandom1.ToString() + setRandom2.ToString()) && !FoundedList.Contains(bmps[setRandom1, setRandom2]))
+
+                while (NumbList.Contains(setRandom1.ToString() + setRandom2.ToString()) || FoundedList.Contains(bmps[setRandom1, setRandom2]))
                 {
                     setRandom1 = rndNumb.Next(0, 4);
                     setRandom2 = rndNumb.Next(0, 4);
                 }
-                NumbList.Add(setRandom1.ToString() + setRandom2.ToString());
-                var element = (PictureBox)pnlPuzzleItem.Controls[i];
 
-                if (element.Enabled == true )
+                var element = (PictureBox)pnlPuzzleItem.Controls[i];
+                if (element.Enabled == true && bmps[setRandom1, setRandom2] != element.Image)
                 {
                     element.Image = bmps[setRandom1, setRandom2];
+                    NumbList.Add(setRandom1.ToString() + setRandom2.ToString());
+                }
+                else
+                {
+                    while (NumbList.Contains(setRandom1.ToString() + setRandom2.ToString()) || FoundedList.Contains(bmps[setRandom1, setRandom2]))
+                    {
+                        setRandom1 = rndNumb.Next(0, 4);
+                        setRandom2 = rndNumb.Next(0, 4);
+                    }
+                    if (element.Enabled == true)
+                    {
+                        element.Image = bmps[setRandom1, setRandom2];
+                        NumbList.Add(setRandom1.ToString() + setRandom2.ToString());
+                    }
+
+
+
                 }
             }
         }
         private void loadImages()
         {
             FoundedList.Clear();
-            randomPictureCode = pictureCode.Next(0, ImageList.Count());
+            lstOriginalPictureList.Clear();
+            tempImage.Clear();
+
+
             for (int i = 0; i < 16; i++)
             {
                 var element = (PictureBox)pnlPuzzleItem.Controls[i];
@@ -145,7 +167,14 @@ namespace PuzzleGame
             bmps = null;
             btnStart.Enabled = false;
             Image img = ImageList[randomPictureCode];
+            while (img == pbxPrevImg.Image)
+            {
+                randomPictureCode = pictureCode.Next(0, ImageList.Count());
+                img = ImageList[randomPictureCode];
+            }
             pbxPrevImg.Image = img;
+          
+
             int widthThird = (int)((double)img.Width / 4.0 + 0.5);
             int heightThird = (int)((double)img.Height / 4.0 + 0.5);
             bmps = new Bitmap[4, 4];
@@ -219,7 +248,7 @@ namespace PuzzleGame
                             if (lstHandledPictureList.Last.Value == (pnlPuzzleItem.Controls[b] as PictureBox).Image && (pnlPuzzleItem.Controls[b] as PictureBox).Image == tempImage[b])
                             {
                                 pbxTemp2.Enabled = false;
-                                FoundedList.Add(pbxTemp.Image);
+                                FoundedList.Add(pbxTemp2.Image);
                                 score += 5;
                                 button4.Text = score.ToString();
                                 twoTimes = true;
@@ -232,19 +261,14 @@ namespace PuzzleGame
                 }
                 lstHandledPictureList.Clear();
                 if (i == 16) return true;
-                else return false;
             }
-            if (pbxTemp.Enabled == true && pbxTemp2.Enabled == true && pbxTemp.Image!=pbxTemp2.Image)
+            if (pbxTemp.Enabled == true && pbxTemp2.Enabled == true && pbxTemp.Image != pbxTemp2.Image)
             {
                 if (score != 0)
                 {
                     score -= 10;
                     button4.Text = score.ToString();
-                    if (score == 0)
-                    {
-                        MessageBox.Show("Kaybettiniz", "Oyun Sonu", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                        addScore();
-                    }
+
                 }
             }
             return false;
@@ -287,15 +311,18 @@ namespace PuzzleGame
                 if (CheckWin())
                 {
                     MessageBox.Show("Kazandiniz", "Tebrik", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
+                    using (StreamWriter streamWriter = new StreamWriter(Directory.GetCurrentDirectory() + "/log.txt"))
+                    {
+                        await streamWriter.WriteLineAsync($"ADI : {userName} | HAMLE SAYISI : {yapilanAdim} | PUANI : {score} | ");
+                        streamWriter.Close();
+                        await streamWriter.DisposeAsync();
+                    }
                     loadImages();
                     await _userService.CreateAsync(new Users() { username = userName, movesmade = yapilanAdim, userscore = score });
-
                 };
             }
             else
             {
-
                 pbxTemp = pbx;
                 bmps2[sayac, sayac] = (Bitmap)pbx.Image;
             }

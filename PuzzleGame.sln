@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.Core", "PuzzleGa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.Business", "PuzzleGame.Business\PuzzleGame.Business.csproj", "{92B53459-9F58-4E3A-A3CB-DCD97920494A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuzzleGame.WebUI", "PuzzleGame.WebUI\PuzzleGame.WebUI.csproj", "{0C690362-4781-4A58-9522-E258E755F9A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PuzzleGame.WebUI", "PuzzleGame.WebUI\PuzzleGame.WebUI.csproj", "{0C690362-4781-4A58-9522-E258E755F9A3}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PuzzleGame.Setup", "PuzzleGame.Setup\PuzzleGame.Setup.vdproj", "{366A5DC5-8F67-4129-94C1-24EDECCA787C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,8 @@ Global
 		{0C690362-4781-4A58-9522-E258E755F9A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C690362-4781-4A58-9522-E258E755F9A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C690362-4781-4A58-9522-E258E755F9A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366A5DC5-8F67-4129-94C1-24EDECCA787C}.Debug|Any CPU.ActiveCfg = Debug
+		{366A5DC5-8F67-4129-94C1-24EDECCA787C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

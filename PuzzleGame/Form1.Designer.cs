@@ -54,6 +54,7 @@
             columnHeader3 = new System.Windows.Forms.ColumnHeader();
             columnHeader4 = new System.Windows.Forms.ColumnHeader();
             panel2 = new System.Windows.Forms.Panel();
+            pbxPrevImg = new System.Windows.Forms.PictureBox();
             button4 = new System.Windows.Forms.Button();
             btnMove = new System.Windows.Forms.Button();
             label3 = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             btnSaveName = new System.Windows.Forms.Button();
             pbxReload = new System.Windows.Forms.PictureBox();
             pbxRefresh = new System.Windows.Forms.PictureBox();
-            pbxPrevImg = new System.Windows.Forms.PictureBox();
             pnlPuzzleItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox16).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
@@ -89,15 +89,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxPrevImg).BeginInit();
             pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbxReload).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxRefresh).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbxPrevImg).BeginInit();
             SuspendLayout();
             // 
             // pnlPuzzleItem
             // 
-            pnlPuzzleItem.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            pnlPuzzleItem.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             pnlPuzzleItem.Controls.Add(pictureBox16);
             pnlPuzzleItem.Controls.Add(pictureBox15);
             pnlPuzzleItem.Controls.Add(pictureBox14);
@@ -116,7 +116,7 @@
             pnlPuzzleItem.Controls.Add(pictureBox1);
             pnlPuzzleItem.Location = new System.Drawing.Point(25, 89);
             pnlPuzzleItem.Name = "pnlPuzzleItem";
-            pnlPuzzleItem.Size = new System.Drawing.Size(426, 307);
+            pnlPuzzleItem.Size = new System.Drawing.Size(426, 324);
             pnlPuzzleItem.TabIndex = 0;
             // 
             // pictureBox16
@@ -266,7 +266,7 @@
             // btnKaristir
             // 
             btnKaristir.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            btnKaristir.Location = new System.Drawing.Point(315, 402);
+            btnKaristir.Location = new System.Drawing.Point(312, 419);
             btnKaristir.Name = "btnKaristir";
             btnKaristir.Size = new System.Drawing.Size(261, 83);
             btnKaristir.TabIndex = 1;
@@ -277,7 +277,7 @@
             // btnStart
             // 
             btnStart.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            btnStart.Location = new System.Drawing.Point(28, 402);
+            btnStart.Location = new System.Drawing.Point(28, 419);
             btnStart.Name = "btnStart";
             btnStart.Size = new System.Drawing.Size(261, 83);
             btnStart.TabIndex = 3;
@@ -287,6 +287,7 @@
             // 
             // listView1
             // 
+            listView1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             listView1.HideSelection = false;
             listView1.Location = new System.Drawing.Point(622, 89);
@@ -314,7 +315,7 @@
             // 
             // panel2
             // 
-            panel2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            panel2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             panel2.BackColor = System.Drawing.Color.Coral;
             panel2.Controls.Add(pbxPrevImg);
             panel2.Controls.Add(button4);
@@ -323,8 +324,17 @@
             panel2.Controls.Add(label2);
             panel2.Location = new System.Drawing.Point(457, 92);
             panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(119, 304);
+            panel2.Size = new System.Drawing.Size(119, 321);
             panel2.TabIndex = 5;
+            // 
+            // pbxPrevImg
+            // 
+            pbxPrevImg.Location = new System.Drawing.Point(5, 3);
+            pbxPrevImg.Name = "pbxPrevImg";
+            pbxPrevImg.Size = new System.Drawing.Size(111, 91);
+            pbxPrevImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pbxPrevImg.TabIndex = 5;
+            pbxPrevImg.TabStop = false;
             // 
             // button4
             // 
@@ -367,11 +377,11 @@
             label1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe Script", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(462, 69);
+            label1.Location = new System.Drawing.Point(468, 69);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(106, 20);
+            label1.Size = new System.Drawing.Size(88, 20);
             label1.TabIndex = 0;
-            label1.Text = "Current Score";
+            label1.Text = "Prew Image";
             // 
             // pnlHeader
             // 
@@ -389,7 +399,7 @@
             // 
             btnClose.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnClose.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnClose.Location = new System.Drawing.Point(810, 3);
+            btnClose.Location = new System.Drawing.Point(809, 3);
             btnClose.Name = "btnClose";
             btnClose.Size = new System.Drawing.Size(63, 33);
             btnClose.TabIndex = 12;
@@ -401,7 +411,7 @@
             // 
             btnHide.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnHide.Font = new System.Drawing.Font("Arial Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnHide.Location = new System.Drawing.Point(676, 3);
+            btnHide.Location = new System.Drawing.Point(675, 3);
             btnHide.Name = "btnHide";
             btnHide.Size = new System.Drawing.Size(59, 32);
             btnHide.TabIndex = 10;
@@ -413,7 +423,7 @@
             // 
             btnFullScreen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnFullScreen.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            btnFullScreen.Location = new System.Drawing.Point(741, 3);
+            btnFullScreen.Location = new System.Drawing.Point(740, 3);
             btnFullScreen.Name = "btnFullScreen";
             btnFullScreen.Size = new System.Drawing.Size(63, 32);
             btnFullScreen.TabIndex = 11;
@@ -425,7 +435,7 @@
             // 
             pnlFooter.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             pnlFooter.BackColor = System.Drawing.Color.White;
-            pnlFooter.Location = new System.Drawing.Point(0, 510);
+            pnlFooter.Location = new System.Drawing.Point(-1, 510);
             pnlFooter.Name = "pnlFooter";
             pnlFooter.Size = new System.Drawing.Size(875, 44);
             pnlFooter.TabIndex = 8;
@@ -435,7 +445,7 @@
             label4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe Script", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(713, 66);
+            label4.Location = new System.Drawing.Point(695, 66);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(99, 20);
             label4.TabIndex = 9;
@@ -466,6 +476,7 @@
             // 
             // pbxReload
             // 
+            pbxReload.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             pbxReload.Image = Properties.Resources.Youtube_loading_symbol_1__wobbly_;
             pbxReload.Location = new System.Drawing.Point(622, 117);
             pbxReload.Name = "pbxReload";
@@ -478,7 +489,7 @@
             // 
             pbxRefresh.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             pbxRefresh.Image = Properties.Resources.png_transparent_computer_icons_refresh_free_one_button_reload_text_logo_monochrome;
-            pbxRefresh.Location = new System.Drawing.Point(662, 66);
+            pbxRefresh.Location = new System.Drawing.Point(622, 66);
             pbxRefresh.Name = "pbxRefresh";
             pbxRefresh.Size = new System.Drawing.Size(45, 20);
             pbxRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -486,19 +497,13 @@
             pbxRefresh.TabStop = false;
             pbxRefresh.Click += pbxRefresh_Click;
             // 
-            // pbxPrevImg
-            // 
-            pbxPrevImg.Location = new System.Drawing.Point(5, 3);
-            pbxPrevImg.Name = "pbxPrevImg";
-            pbxPrevImg.Size = new System.Drawing.Size(111, 91);
-            pbxPrevImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbxPrevImg.TabIndex = 5;
-            pbxPrevImg.TabStop = false;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScroll = true;
+            AutoSize = true;
+            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             BackColor = System.Drawing.Color.Coral;
             ClientSize = new System.Drawing.Size(874, 554);
             Controls.Add(pbxRefresh);
@@ -539,10 +544,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxPrevImg).EndInit();
             pnlHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbxReload).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxRefresh).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbxPrevImg).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

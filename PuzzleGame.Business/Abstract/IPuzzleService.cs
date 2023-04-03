@@ -10,9 +10,9 @@ namespace PuzzleGame.Business.Abstract
     public interface IPuzzleService
     {
         Task<List<Puzzless>> GetAllAsync();
-        Task<Puzzless> GetByIdAsync(Expression<Func<Puzzless, bool>> filter = null);
+        Task<Puzzless> GetByIdAsync(string id);
         Task<Puzzless> CreateAsync(Puzzless customer);
-        Task UpdateAsync(Puzzless entity, Expression<Func<Puzzless, bool>> filter = null);
-        Task DeleteAsync(Expression<Func<Puzzless, bool>> filter = null);
+        Task UpdateAsync(Puzzless customer,string id);
+        Task DeleteAsync(string id);
     }
 }

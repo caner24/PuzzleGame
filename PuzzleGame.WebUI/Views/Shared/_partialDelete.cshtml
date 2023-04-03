@@ -1,0 +1,26 @@
+﻿@model Puzzless
+
+
+<button type="button" class="w-100 btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+    SİL
+</button>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">@Model.puzzlename</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Model.puzzlename adli görseli silmek istediğinize emin misiniz ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">VAZGEÇ</button>
+                <a asp-action="DeleteImages" asp-controller="Home" asp-route-id="@Model.id" type="button" id="del" name="del" class="btn btn-danger">SİL</a>
+            </div>
+        </div>
+    </div>
+</div>

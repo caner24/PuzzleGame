@@ -19,27 +19,27 @@ namespace PuzzleGame.Business.Concrate
         }
         public async Task<Puzzless> CreateAsync(Puzzless customer)
         {
-         return   await _puzzleDal.CreateAsync(customer);
+            return await _puzzleDal.CreateAsync(customer);
         }
 
-        public Task DeleteAsync(Expression<Func<Puzzless, bool>> filter = null)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            await _puzzleDal.DeleteAsync(id);
         }
 
         public async Task<List<Puzzless>> GetAllAsync()
         {
-			return await _puzzleDal.GetAllAsync();
-		}
-
-        public Task<Puzzless> GetByIdAsync(Expression<Func<Puzzless, bool>> filter = null)
-        {
-            throw new NotImplementedException();
+            return await _puzzleDal.GetAllAsync();
         }
 
-        public Task UpdateAsync(Puzzless entity, Expression<Func<Puzzless, bool>> filter = null)
+        public async Task<Puzzless> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _puzzleDal.GetByIdAsync(id);
+        }
+
+        public async Task UpdateAsync(Puzzless entity, string id)
+        {
+            await _puzzleDal.UpdateAsync(entity, id);
         }
     }
 }

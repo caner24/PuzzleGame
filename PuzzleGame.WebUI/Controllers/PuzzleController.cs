@@ -14,7 +14,7 @@ namespace PuzzleGame.WebUI.Controllers
         private IPuzzleService _puzzleService;
         public PuzzleController(IPuzzleService puzzleService)
         {
-            puzzleService = _puzzleService;
+            _puzzleService = puzzleService;
         }
 
         [HttpGet]

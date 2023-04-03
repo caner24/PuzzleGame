@@ -31,7 +31,7 @@ namespace PuzzleGame.Business.Concrate
             return await _userDal.GetAllAsync();
         }
 
-        public Task<Users> GetByIdAsync(Expression<Func<Users, bool>> filter = null)
+        public Task<Users> GetByIdAsync(string id)
         {
             throw new NotImplementedException();
         }

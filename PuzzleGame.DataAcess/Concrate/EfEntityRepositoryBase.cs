@@ -22,21 +22,21 @@ namespace PuzzleGame.Core.Concrate
             DbConfiguration._settings = MongoClientSettings.FromConnectionString("mongodb+srv://caner24:45867-Sas@cluster0.x5pu6sm.mongodb.net/?retryWrites=true&w=majority");
             //DbConfiguration._settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             DbConfiguration._settings.LinqProvider = LinqProvider.V2;
-            DbConfiguration._client= new MongoClient(DbConfiguration._settings);
-            DbConfiguration._database= DbConfiguration._client.GetDatabase("PuzzleGame");
+            DbConfiguration._client = new MongoClient(DbConfiguration._settings);
+            DbConfiguration._database = DbConfiguration._client.GetDatabase("PuzzleGame");
             _myCollection = DbConfiguration._database.GetCollection<TEntity>(typeof(TEntity).Name);
-          
+
         }
 
         public async Task<TEntity> CreateAsync(TEntity customer)
         {
-            await  _myCollection.InsertOneAsync(customer).ConfigureAwait(false);
+            await _myCollection.InsertOneAsync(customer).ConfigureAwait(false);
             return customer;
         }
 
-        public async Task DeleteAsync(Expression<Func<TEntity, bool>> filter = null)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            await _myCollection.FindOneAndDeleteAsync($"{{ _id: ObjectId('{id}') }}");
         }
 
         public async Task<List<TEntity>> GetAllAsync()
@@ -44,14 +44,14 @@ namespace PuzzleGame.Core.Concrate
             return await _myCollection.Find(c => true).ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>> filter = null)
+        public async Task<TEntity> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _myCollection.Find($"{{ _id: ObjectId('{id}') }}").SingleAsync();
         }
 
-        public Task UpdateAsync(TEntity entity, Expression<Func<TEntity, bool>> filter = null)
+        public async Task UpdateAsync(TEntity entity,string id)
         {
-            throw new NotImplementedException();
+         await  _myCollection.ReplaceOneAsync($"{{ _id: ObjectId('{id}') }}", entity);
         }
     }
 }
