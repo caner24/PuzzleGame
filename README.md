@@ -14,7 +14,7 @@ PuzzleGame Desktop,WebApi Project
 </br>
 
 <a href="http://puzzlegame.rf.gd/" target="_blank">Oyunu indirmek için tıklayabilirsiniz</a>
-
+<a href="https://github.com/caner24/PuzzleGame/blob/master/201307036_Caner_Ay_Celep_201307024_Eyup_Ayaz.docx" target="_blank">Proje raporuna burdan ulaşabilirsiniz</a>
 
 <h2>Oyun içi ressimler</h2>
 </br>
