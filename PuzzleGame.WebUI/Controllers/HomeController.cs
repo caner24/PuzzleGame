@@ -74,7 +74,6 @@ namespace PuzzleGame.WebUI.Controllers
                 else
                 {
                     model.puzzlepicture = setImage;
-                    setImage = null;
                 }
                 await _puzzleService.UpdateAsync(model, model.id);
                 return RedirectToAction("Index");
